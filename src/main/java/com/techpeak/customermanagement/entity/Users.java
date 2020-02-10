@@ -1,7 +1,5 @@
 package com.techpeak.customermanagement.entity;
 
-import com.techpeak.customermanagement.entity.BaseEntity;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,8 +11,11 @@ public class Users extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="password",length = 10)
-    private String Password;
+    @Column(name = "username", length = 100)
+    private String username;
+
+    @Column(name="password",length = 200)
+    private String password;
 
     @Column(name="authorization_code",length = 3)
     private int authorizationCode;
@@ -29,9 +30,10 @@ public class Users extends BaseEntity {
     public Users() {
     }
 
-    public Users(String name, String surName, String password, int authorizationCode, String userAccessCode, Date registerDate) {
+    public Users(String name, String surName, String username, String password, int authorizationCode, String userAccessCode, Date registerDate) {
         super(name, surName);
-        Password = password;
+        this.username = username;
+        this.password = password;
         this.authorizationCode = authorizationCode;
         this.userAccessCode = userAccessCode;
         this.registerDate = registerDate;
@@ -46,11 +48,11 @@ public class Users extends BaseEntity {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public int getAuthorizationCode() {
@@ -63,6 +65,14 @@ public class Users extends BaseEntity {
 
     public String getUserAccessCode() {
         return userAccessCode;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setUserAccessCode(String userAccessCode) {
@@ -81,7 +91,8 @@ public class Users extends BaseEntity {
     public String toString() {
         return "Users{" +
                 "id=" + id +
-                ", Password='" + Password + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", authorizationCode=" + authorizationCode +
                 ", userAccessCode='" + userAccessCode + '\'' +
                 ", registerDate=" + registerDate +

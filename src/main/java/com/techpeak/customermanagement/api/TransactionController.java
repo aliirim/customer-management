@@ -25,12 +25,12 @@ public class TransactionController {
         this.transactionServiceImpl = transactionServiceImpl;
     }
 
-    @GetMapping("/{id}")
+ /*   @GetMapping("/{id}")
     @ApiOperation(value = "Get By Id Operation", response = TransactionDto.class)
     ResponseEntity<TransactionDto> getById(@PathVariable(value = "id") int id){
         TransactionDto transactionDto = transactionServiceImpl.getById(id);
         return ResponseEntity.ok(transactionDto);
-    }
+    }*/
 
     @GetMapping("/{cardNo}")
     @ApiOperation(value = "Get By Card No Operation", response = TransactionDto.class)

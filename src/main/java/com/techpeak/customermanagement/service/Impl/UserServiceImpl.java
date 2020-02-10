@@ -98,6 +98,7 @@ public class UserServiceImpl implements UserService {
             users.setUserAccessCode(registrationDto.getUserAccessCode());
             users.setAuthorizationCode(registrationDto.getAuthorizationCode());
             users.setRegisterDate(registrationDto.getRegisterDate());
+            users.setUsername(registrationDto.getUsername());
             userRepository.save(users);
             return Boolean.TRUE;
     }

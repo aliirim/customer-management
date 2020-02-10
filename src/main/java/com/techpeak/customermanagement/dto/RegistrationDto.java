@@ -7,20 +7,22 @@ public class RegistrationDto {
 
     private String name;
     private String surname;
+    private String username;
     private String userAccessCode;
     private Date registerDate;
-    private String Password;
+    private String password;
     private int authorizationCode;
 
     public RegistrationDto() {
     }
 
-    public RegistrationDto(String name, String surname, String userAccessCode, Date registerDate,  String password, int authorizationCode) {
+    public RegistrationDto(String name, String surname, String username, String userAccessCode, Date registerDate, String password, int authorizationCode) {
         this.name = name;
         this.surname = surname;
+        this.username = username;
         this.userAccessCode = userAccessCode;
         this.registerDate = registerDate;
-        Password = password;
+        this.password = password;
         this.authorizationCode = authorizationCode;
     }
 
@@ -30,6 +32,14 @@ public class RegistrationDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSurname() {
@@ -57,11 +67,11 @@ public class RegistrationDto {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public int getAuthorizationCode() {
@@ -77,9 +87,10 @@ public class RegistrationDto {
         return "RegistrationDto{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", username='" + username + '\'' +
                 ", userAccessCode='" + userAccessCode + '\'' +
                 ", registerDate=" + registerDate +
-                ", Password='" + Password + '\'' +
+                ", password='" + password + '\'' +
                 ", authorizationCode=" + authorizationCode +
                 '}';
     }

@@ -1,12 +1,5 @@
 package com.techpeak.customermanagement.dto;
 
-import com.techpeak.customermanagement.entity.Cards;
-
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
 import java.util.List;
 
 public class CustomerDto {

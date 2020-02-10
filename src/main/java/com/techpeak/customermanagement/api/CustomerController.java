@@ -33,12 +33,12 @@ public class CustomerController {
         return ResponseEntity.ok(customerDto);
     }
 
-    @GetMapping("/{name}")
+ /*   @GetMapping("/{name}")
     @ApiOperation(value = "Get By Customer Name Operation", response = CustomerDto.class)
     ResponseEntity<CustomerDto> getByCustomerName(@PathVariable(value = "name") String name){
         CustomerDto customerDto = customerServiceImpl.getByCustomerName(name);
         return ResponseEntity.ok(customerDto);
-    }
+    }*/
 
     @GetMapping("/pagination")
     @ApiOperation(value = "Get By Pagination Operation", response = CustomerDto.class)

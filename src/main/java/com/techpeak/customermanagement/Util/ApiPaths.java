@@ -23,4 +23,8 @@ public final class ApiPaths {
     public static final class RegisterCtrl {
         public static final String CTRL = BASE_PATH + "/register";
     }
+
+    public static final class TokenCtrl {
+        public static final String CTRL = BASE_PATH + "/token";
+    }
 }
