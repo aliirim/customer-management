@@ -48,8 +48,8 @@ public class AccountController {
     public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest request) throws AuthenticationException {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         final Users user = userRepository.findByUsername(request.getUsername());
-        final String token = jwtTokenUtil.generateToken(user);
-        return ResponseEntity.ok(new TokenResponse(user.getUsername(), token));
+        //final String token = jwtTokenUtil.generateToken(user);
+        return ResponseEntity.ok(new TokenResponse(user.getUsername(),""));
     }
 
 

@@ -2,6 +2,7 @@ package com.techpeak.customermanagement.config;
 
 import java.util.Arrays;
 
+import com.techpeak.customermanagement.security.AuthenticationFilter;
 import com.techpeak.customermanagement.security.AuthorizationFilter;
 import com.techpeak.customermanagement.security.JwtAuthenticationEntryPoint;
 import com.techpeak.customermanagement.security.SecurityConstants;
@@ -60,6 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .permitAll()
         .anyRequest().authenticated().and()
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+        .addFilter(getAuthenticationFilter())
         .addFilter(new AuthorizationFilter(authenticationManager()))
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         
@@ -70,6 +72,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
+
+    protected AuthenticationFilter getAuthenticationFilter() throws Exception {
+	    final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
+	    filter.setFilterProcessesUrl("/api/token");
+	    return filter;
+	}
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource()
