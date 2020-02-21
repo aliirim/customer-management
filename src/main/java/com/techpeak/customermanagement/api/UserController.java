@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @ApiOperation(value = "Get By Id Operation", response = UserDto.class)
-    ResponseEntity<UserDto> getById(@PathVariable(value = "id") int id){
+    ResponseEntity<UserDto> getById(@PathVariable(value = "id") int id) {
         UserDto userDto = userServiceImpl.getById(id);
         return ResponseEntity.ok(userDto);
     }
@@ -41,7 +41,7 @@ public class UserController {
 
     @GetMapping("/pagination")
     @ApiOperation(value = "Get By Pagination Operation", response = UserDto.class)
-    ResponseEntity<TPage<UserDto>> getAllByPagination(Pageable pageable){
+    ResponseEntity<TPage<UserDto>> getAllByPagination(Pageable pageable) {
         TPage<UserDto> userDtoTPage = userServiceImpl.findAllPages(pageable);
         return ResponseEntity.ok(userDtoTPage);
     }
@@ -67,7 +67,7 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "Delete Operation", response = UserDto.class)
-    ResponseEntity<Boolean> deleteById(@PathVariable(value = "id") int id){
+    ResponseEntity<Boolean> deleteById(@PathVariable(value = "id") int id) {
         return ResponseEntity.ok(userServiceImpl.deleteById(id));
     }
 

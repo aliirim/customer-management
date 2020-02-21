@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDto update(String customerNo, CustomerDto customerDto) {
         Customers customers = customerRepository.findByCustomerNo(customerNo);
 
-        if(customers ==null){
+        if (customers == null) {
             throw new IllegalArgumentException("Customer Does Not Exist No:" + customerNo);
         }
         customers.setName(customerDto.getName());

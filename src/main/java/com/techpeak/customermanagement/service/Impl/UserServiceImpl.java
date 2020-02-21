@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
     public UserDto update(int id, UserDto userDto) {
         Users users = userRepository.getOne(userDto.getId());
 
-        if(users ==null){
+        if (users == null) {
             throw new IllegalArgumentException("User Does Not Exist ID:" + id);
         }
         users.setName(userDto.getName());
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getByUserName(String name) {
         Users users = userRepository.findByName(name);
-       return modelMapper.map(users, UserDto.class);
+        return modelMapper.map(users, UserDto.class);
     }
 
     @Override
@@ -75,10 +75,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public TPage<UserDto> findAllPages(Pageable pageable) {
-       Page<Users> users = userRepository.findAll(pageable);
-       TPage<UserDto> userDtoTPage = new TPage<UserDto>();
-       userDtoTPage.setPage(users, Arrays.asList(modelMapper.map(users.getContent(), UserDto[].class)));
-       return userDtoTPage;
+        Page<Users> users = userRepository.findAll(pageable);
+        TPage<UserDto> userDtoTPage = new TPage<UserDto>();
+        userDtoTPage.setPage(users, Arrays.asList(modelMapper.map(users.getContent(), UserDto[].class)));
+        return userDtoTPage;
     }
 
     @Override
@@ -89,17 +89,17 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public Boolean register(RegistrationDto registrationDto) {
-            Users users = new Users();
+        Users users = new Users();
 
-            users.setName(registrationDto.getName());
-            users.setSurname(registrationDto.getSurname());
-            users.setPassword(registrationDto.getPassword());
-            users.setPassword(bCryptPasswordEncoder.encode(registrationDto.getPassword()));
-            users.setUserAccessCode(registrationDto.getUserAccessCode());
-            users.setAuthorizationCode(registrationDto.getAuthorizationCode());
-            users.setRegisterDate(registrationDto.getRegisterDate());
-            users.setUsername(registrationDto.getUsername());
-            userRepository.save(users);
-            return Boolean.TRUE;
+        users.setName(registrationDto.getName());
+        users.setSurname(registrationDto.getSurname());
+        users.setPassword(registrationDto.getPassword());
+        users.setPassword(bCryptPasswordEncoder.encode(registrationDto.getPassword()));
+        users.setUserAccessCode(registrationDto.getUserAccessCode());
+        users.setAuthorizationCode(registrationDto.getAuthorizationCode());
+        users.setRegisterDate(registrationDto.getRegisterDate());
+        users.setUsername(registrationDto.getUsername());
+        userRepository.save(users);
+        return Boolean.TRUE;
     }
 }

@@ -13,21 +13,21 @@ public class Transactions {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="transaction_type")
+    @Column(name = "transaction_type")
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
 
-    @Column(name="fee")
+    @Column(name = "fee")
     private double fee;
 
-    @Column(name="description",length = 100)
+    @Column(name = "description", length = 100)
     private String description;
 
-    @Column(name="store_adress",length = 100)
+    @Column(name = "store_adress", length = 100)
     private String storeAdress;
 
     @ManyToOne
-    @JoinColumn(name = "card_no",referencedColumnName = "card_no")
+    @JoinColumn(name = "card_no", referencedColumnName = "card_no")
     private Cards cards;
 
     public Transactions() {

@@ -28,7 +28,7 @@ public class CustomerController {
 
     @GetMapping("/{customerNo}")
     @ApiOperation(value = "Get By Customer No Operation", response = CustomerDto.class)
-    ResponseEntity<CustomerDto> getByCustomerNo(@PathVariable(value = "customerNo") String customerNo){
+    ResponseEntity<CustomerDto> getByCustomerNo(@PathVariable(value = "customerNo") String customerNo) {
         CustomerDto customerDto = customerServiceImpl.getByCustomerNo(customerNo);
         return ResponseEntity.ok(customerDto);
     }
@@ -42,7 +42,7 @@ public class CustomerController {
 
     @GetMapping("/pagination")
     @ApiOperation(value = "Get By Pagination Operation", response = CustomerDto.class)
-    ResponseEntity<TPage<CustomerDto>> getAllByPagination(Pageable pageable){
+    ResponseEntity<TPage<CustomerDto>> getAllByPagination(Pageable pageable) {
         TPage<CustomerDto> customerDtoTPage = customerServiceImpl.findAllPages(pageable);
         return ResponseEntity.ok(customerDtoTPage);
     }
@@ -68,7 +68,7 @@ public class CustomerController {
 
     @DeleteMapping("/{customerNo}")
     @ApiOperation(value = "Delete Operation", response = CustomerDto.class)
-    ResponseEntity<Boolean> deleteById(@PathVariable(value = "customerNo") String customerNo){
+    ResponseEntity<Boolean> deleteById(@PathVariable(value = "customerNo") String customerNo) {
         return ResponseEntity.ok(customerServiceImpl.deleteByCustomerNo(customerNo));
     }
 }

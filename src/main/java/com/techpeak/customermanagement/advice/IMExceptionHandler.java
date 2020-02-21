@@ -13,8 +13,8 @@ import java.util.Date;
 public class IMExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public final ResponseEntity<?> handleException(WebRequest webRequest, ExceptionResponse ex){
-         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage());
-         return new ResponseEntity<>(exceptionResponse, HttpStatus.EXPECTATION_FAILED);
+    public final ResponseEntity<?> handleException(WebRequest webRequest, ExceptionResponse ex) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage());
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.EXPECTATION_FAILED);
     }
 }

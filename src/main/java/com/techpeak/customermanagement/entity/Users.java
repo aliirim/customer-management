@@ -14,16 +14,16 @@ public class Users extends BaseEntity {
     @Column(name = "username", length = 100)
     private String username;
 
-    @Column(name="password",length = 200)
+    @Column(name = "password", length = 200)
     private String password;
 
-    @Column(name="authorization_code",length = 3)
+    @Column(name = "authorization_code", length = 3)
     private int authorizationCode;
 
-    @Column(name="user_access_code",length = 5)
+    @Column(name = "user_access_code", length = 5)
     private String userAccessCode;
 
-    @Column(name="register_date")
+    @Column(name = "register_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date registerDate;
 

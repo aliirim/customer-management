@@ -10,26 +10,26 @@ public class UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="email",length = 20)
+    @Column(name = "email", length = 20)
     private String email;
 
-    @Column(name="address1",length = 100)
+    @Column(name = "address1", length = 100)
     private String address1;
 
-    @Column(name="address2",length = 100)
+    @Column(name = "address2", length = 100)
     private String address2;
 
-    @Column(name="address3",length = 100)
+    @Column(name = "address3", length = 100)
     private String address3;
 
-    @Column(name="mobil_tel",length = 14)
+    @Column(name = "mobil_tel", length = 14)
     private String mobilTel;
 
-    @Column(name="work_tel",length = 14)
+    @Column(name = "work_tel", length = 14)
     private String workTel;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn (name = "user_id")
+    @JoinColumn(name = "user_id")
     private Users user;
 
     public UserDetails() {

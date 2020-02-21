@@ -28,9 +28,9 @@ public class AccountController {
     UserRepository userRepository;
 
     @Autowired
-    public AccountController(UserServiceImpl userServiceImpl, AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil,  UserRepository userRepository) {
+    public AccountController(UserServiceImpl userServiceImpl, AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, UserRepository userRepository) {
         this.userServiceImpl = userServiceImpl;
-        this.authenticationManager =  authenticationManager;
+        this.authenticationManager = authenticationManager;
         this.jwtTokenUtil = jwtTokenUtil;
         this.userRepository = userRepository;
     }
@@ -43,14 +43,16 @@ public class AccountController {
     }
 
 
+/*
     @PostMapping
     @ApiOperation(value = "Login Operation", response = RegistrationDto.class)
     public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest request) throws AuthenticationException {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         final Users user = userRepository.findByUsername(request.getUsername());
         //final String token = jwtTokenUtil.generateToken(user);
-        return ResponseEntity.ok(new TokenResponse(user.getUsername(),""));
+        return ResponseEntity.ok(new TokenResponse(user.getUsername(), ""));
     }
+*/
 
 
 }

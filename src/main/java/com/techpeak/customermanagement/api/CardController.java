@@ -30,14 +30,14 @@ public class CardController {
 
     @GetMapping("/{cardNo}")
     @ApiOperation(value = "Get By Card No Operation", response = CardDto.class)
-    ResponseEntity<CardDto> getByCardNo(@PathVariable(value = "cardNo") String cardNo){
+    ResponseEntity<CardDto> getByCardNo(@PathVariable(value = "cardNo") String cardNo) {
         CardDto cardDto = cardServiceImpl.getByCardNo(cardNo);
         return ResponseEntity.ok(cardDto);
     }
 
     @GetMapping("/pagination")
     @ApiOperation(value = "Get By Pagination Operation", response = CardDto.class)
-    ResponseEntity<TPage<CardDto>> getAllByPagination(Pageable pageable){
+    ResponseEntity<TPage<CardDto>> getAllByPagination(Pageable pageable) {
         TPage<CardDto> cardDtoTPage = cardServiceImpl.findAllPages(pageable);
         return ResponseEntity.ok(cardDtoTPage);
     }
@@ -63,7 +63,7 @@ public class CardController {
 
     @DeleteMapping("/{cardNo}")
     @ApiOperation(value = "Delete Operation", response = CardDto.class)
-    ResponseEntity<Boolean> deleteByCardNo(@PathVariable(value = "cardNo") String cardNo){
+    ResponseEntity<Boolean> deleteByCardNo(@PathVariable(value = "cardNo") String cardNo) {
         return ResponseEntity.ok(cardServiceImpl.deleteByCardNo(cardNo));
     }
 }

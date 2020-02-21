@@ -17,7 +17,7 @@ public class CustomerManagementApplication {
     }
 
     @Bean
-    ModelMapper getModelMapper(){
+    ModelMapper getModelMapper() {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         return modelMapper;
@@ -29,14 +29,12 @@ public class CustomerManagementApplication {
     }
 
     @Bean
-    public SpringApplicationContext springApplicationContext()
-    {
+    public SpringApplicationContext springApplicationContext() {
         return new SpringApplicationContext();
     }
 
-    @Bean(name="AppProperties")
-    public AppProperties getAppProperties()
-    {
+    @Bean(name = "AppProperties")
+    public AppProperties getAppProperties() {
         return new AppProperties();
     }
 }

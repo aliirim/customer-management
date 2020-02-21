@@ -5,32 +5,32 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "customers",indexes = {@Index(name="idx_customerno", columnList = "customer_no")})
+@Table(name = "customers", indexes = {@Index(name = "idx_customerno", columnList = "customer_no")})
 public class Customers extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="customer_no", length = 20, unique = true)
+    @Column(name = "customer_no", length = 20, unique = true)
     private String customerNo;
 
-    @Column(name="mobil_tel", length = 14)
+    @Column(name = "mobil_tel", length = 14)
     private String mobilTel;
 
-    @Column(name="work_tel", length = 14)
+    @Column(name = "work_tel", length = 14)
     private String workTel;
 
-    @Column(name="profession", length = 20)
+    @Column(name = "profession", length = 20)
     private String profession;
 
-    @Column(name="record_date")
+    @Column(name = "record_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date recordDate;
 
     @OneToMany(mappedBy = "customers")
     private List<Cards> cards;
 
-     public Customers() {
+    public Customers() {
     }
 
     public Customers(String customerNo, String mobilTel, String workTel, String profession, Date recordDate, List<Cards> cards) {
@@ -96,7 +96,9 @@ public class Customers extends BaseEntity {
 
     public void setCards(List<Cards> cards) {
         this.cards = cards;
-    };
+    }
+
+    ;
 
     @Override
     public String toString() {

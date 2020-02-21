@@ -41,7 +41,7 @@ public class TransactionServiceImpl implements TransactionService {
     public TransactionDto update(int id, TransactionDto transactionDto) {
         Transactions transactions = transactionRepository.getOne(id);
 
-        if(transactions ==null){
+        if (transactions == null) {
             throw new IllegalArgumentException("Transaction Does Not Exist No:" + id);
         }
         transactions.setTransactionType(transactionDto.getTransactionType());

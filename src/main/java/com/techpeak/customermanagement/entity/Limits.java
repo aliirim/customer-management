@@ -10,11 +10,11 @@ public class Limits {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="card_type")
+    @Column(name = "card_type")
     @Enumerated(EnumType.STRING)
     private CardType cardType;
 
-    @Column(name="card_limit")
+    @Column(name = "card_limit")
     private double cardLimit;
 
     public Limits() {

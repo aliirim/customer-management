@@ -3,31 +3,31 @@ package com.techpeak.customermanagement.advice;
 import java.util.Date;
 
 public class ExceptionResponse {
-        private Date date;
-        private String message;
+    private Date date;
+    private String message;
 
-        public ExceptionResponse() {
-        }
+    public ExceptionResponse() {
+    }
 
-        public ExceptionResponse(Date date, String message) {
-                this.date = date;
-                this.message = message;
-        }
+    public ExceptionResponse(Date date, String message) {
+        this.date = date;
+        this.message = message;
+    }
 
-        public Date getDate() {
-                return date;
-        }
+    public Date getDate() {
+        return date;
+    }
 
-        public void setDate(Date date) {
-                this.date = date;
-        }
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-        public String getMessage() {
-                return message;
-        }
+    public String getMessage() {
+        return message;
+    }
 
-        public void setMessage(String message) {
-                this.message = message;
-        }
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
 

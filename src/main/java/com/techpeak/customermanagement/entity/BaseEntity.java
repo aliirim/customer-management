@@ -7,9 +7,9 @@ import java.io.Serializable;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
-    @Column(name="name", length = 50)
+    @Column(name = "name", length = 50)
     private String name;
-    @Column(name="surname", length = 50)
+    @Column(name = "surname", length = 50)
     private String surname;
 
     public BaseEntity() {

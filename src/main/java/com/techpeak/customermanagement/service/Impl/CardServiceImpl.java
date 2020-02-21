@@ -39,7 +39,7 @@ public class CardServiceImpl implements CardService {
     public CardDto update(String cardNo, CardDto cardDto) {
         Cards cards = cardRepository.findByCardNo(cardNo);
 
-        if(cards ==null){
+        if (cards == null) {
             throw new IllegalArgumentException("Card Does Not Exist No:" + cardNo);
         }
         cards.setCardType(cardDto.getCardType());

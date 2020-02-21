@@ -34,14 +34,14 @@ public class TransactionController {
 
     @GetMapping("/{cardNo}")
     @ApiOperation(value = "Get By Card No Operation", response = TransactionDto.class)
-    ResponseEntity<TransactionDto> getByCardNo(@PathVariable(value = "cardNo") String cardNo){
+    ResponseEntity<TransactionDto> getByCardNo(@PathVariable(value = "cardNo") String cardNo) {
         TransactionDto transactionDto = transactionServiceImpl.getByCardNo(cardNo);
         return ResponseEntity.ok(transactionDto);
     }
 
     @GetMapping("/pagination")
     @ApiOperation(value = "Get By Pagination Operation", response = TransactionDto.class)
-    ResponseEntity<TPage<TransactionDto>> getAllByPagination(Pageable pageable){
+    ResponseEntity<TPage<TransactionDto>> getAllByPagination(Pageable pageable) {
         TPage<TransactionDto> transactionDtoTPage = transactionServiceImpl.findAllPages(pageable);
         return ResponseEntity.ok(transactionDtoTPage);
     }
@@ -67,7 +67,7 @@ public class TransactionController {
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "Delete Operation", response = TransactionDto.class)
-    ResponseEntity<Boolean> deleteById(@PathVariable(value = "id") int id){
+    ResponseEntity<Boolean> deleteById(@PathVariable(value = "id") int id) {
         return ResponseEntity.ok(transactionServiceImpl.deleteById(id));
     }
 }

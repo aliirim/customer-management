@@ -4,31 +4,31 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="cards",indexes = {@Index(name="idx_cardno",columnList = "card_no") })
+@Table(name = "cards", indexes = {@Index(name = "idx_cardno", columnList = "card_no")})
 public class Cards {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="card_no", length = 16, unique = true)
+    @Column(name = "card_no", length = 16, unique = true)
     private String cardNo;
 
-    @Column(name="card_type")
+    @Column(name = "card_type")
     @Enumerated(EnumType.STRING)
     private CardType cardType;
 
-    @Column(name="card_CVV", length = 3)
+    @Column(name = "card_CVV", length = 3)
     private String cardCVV;
 
-    @Column(name="expire_date")
+    @Column(name = "expire_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date expireDate;
 
-    @Column(name="card_status")
+    @Column(name = "card_status")
     @Enumerated(EnumType.STRING)
     private CardStatus cardStatus;
 
-    @JoinColumn(name = "customer_no",referencedColumnName = "customer_no")
+    @JoinColumn(name = "customer_no", referencedColumnName = "customer_no")
     @ManyToOne
     private Customers customers;
 

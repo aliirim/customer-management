@@ -24,7 +24,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsServiceImpl userDetailsService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -41,30 +41,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.unauthorizedHandler = unauthorizedHandler;
     }
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .cors().and()
-        .csrf().disable().authorizeRequests()
-        .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
-        .permitAll()
-        .antMatchers(HttpMethod.GET, SecurityConstants.VERIFICATION_EMAIL_URL)
-        .permitAll()
-        .antMatchers(HttpMethod.POST, SecurityConstants.PASSWORD_RESET_REQUEST_URL)
-        .permitAll()
-        .antMatchers(HttpMethod.POST, SecurityConstants.PASSWORD_RESET_URL)
-        .permitAll()
-        .antMatchers(SecurityConstants.H2_CONSOLE)
-        .permitAll()
-        .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**","/api/token/register", "/api/token")
-        .permitAll()
-        .anyRequest().authenticated().and()
-        .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-        .addFilter(getAuthenticationFilter())
-        .addFilter(new AuthorizationFilter(authenticationManager()))
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        
+                .cors().and()
+                .csrf().disable().authorizeRequests()
+                .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
+                .permitAll()
+                .antMatchers(HttpMethod.GET, SecurityConstants.VERIFICATION_EMAIL_URL)
+                .permitAll()
+                .antMatchers(HttpMethod.POST, SecurityConstants.PASSWORD_RESET_REQUEST_URL)
+                .permitAll()
+                .antMatchers(HttpMethod.POST, SecurityConstants.PASSWORD_RESET_URL)
+                .permitAll()
+                .antMatchers(SecurityConstants.H2_CONSOLE)
+                .permitAll()
+                .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**", "/api/token/register", "/api/token")
+                .permitAll()
+                .anyRequest().authenticated().and()
+                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+                .addFilter(getAuthenticationFilter())
+                .addFilter(new AuthorizationFilter(authenticationManager()))
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
         http.headers().frameOptions().disable();
     }
 
@@ -74,24 +74,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
     protected AuthenticationFilter getAuthenticationFilter() throws Exception {
-	    final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
-	    filter.setFilterProcessesUrl("/api/token");
-	    return filter;
-	}
+        final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
+        //filter.setFilterProcessesUrl("/api/token");
+        return filter;
+    }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource()
-    {
-    	final CorsConfiguration configuration = new CorsConfiguration();
-    	   
-    	configuration.setAllowedOrigins(Arrays.asList("*"));
-    	configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE","OPTIONS"));
-    	configuration.setAllowCredentials(true);
-    	configuration.setAllowedHeaders(Arrays.asList("*"));
-    	
-    	final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    	source.registerCorsConfiguration("/**", configuration);
-    	
-    	return source;
+    public CorsConfigurationSource corsConfigurationSource() {
+        final CorsConfiguration configuration = new CorsConfiguration();
+
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
     }
 }

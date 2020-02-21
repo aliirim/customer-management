@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CardRepository extends JpaRepository<Cards,Integer> {
+public interface CardRepository extends JpaRepository<Cards, Integer> {
 
     public Cards findByCardNo(String cardNo);
 
